@@ -9,16 +9,16 @@ services:
       - static_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media
     ports:
-      - '8001:8001'
+      - '8000:8000'
     restart: always
-    command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn core.wsgi:application --bind 0.0.0.0:8001"
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn core.wsgi:application --bind 0.0.0.0:8000"
     networks:
       - nginx_network
 
   nginx:
     image: nginx
     ports:
-      - 81:81
+      - 80:80
     volumes:
       - /var/jenkins_home/workspace/test_pipeline/nginx_conf.d:/etc/nginx/conf.d
       - static_volume:/usr/src/app/static
