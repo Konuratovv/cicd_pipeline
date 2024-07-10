@@ -16,9 +16,18 @@ pipeline{
         stage('Docker up'){
             steps   {
                 sh '''
-                docker-compose up --build
+                docker-compose up --build -d
                 '''
 
             }}
+    
+    post{
+        success{
+            echo 'Pipeline ends successfully!'
+        }
+
+        failure{
+            echo 'Pipeline finished with errors!'
+        }
     }
 }
