@@ -20,7 +20,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - /var/jenkins_home/workspace/test_pipeline/nginx_conf.d:/etc/nginx/conf.d
       - static_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media
     depends_on:
