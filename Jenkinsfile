@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        label 'master'
+        label 'eventic_agent_host'
     }
     stages{
         stage('Test Docker Compose') {
