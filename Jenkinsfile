@@ -30,7 +30,7 @@ pipeline{
         }
 
         failure{
-            echo 'Pipeline finished with errors!'
+            echo 'Pipeline finished with errors!!!'
         }
     }
 }
